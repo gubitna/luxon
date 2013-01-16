@@ -1,0 +1,26 @@
+Luxon\Bundle\CmsBundle\Entity\Node:
+    type: entity
+    table: null
+    repositoryClass: Luxon\Bundle\CmsBundle\Entity\NodeRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        type:
+            targetEntity: NodeType
+            inversedBy: nodes
+    oneToMany:
+        attribute_values:
+            targetEntity: NodeAttributeValue
+            mappedBy: node
+    manyToMany:
+        parents:
+            targetEntity: Node
+            inversedBy: children
+        children:
+            targetEntity: Node
+            mappedBy: parents
+    lifecycleCallbacks: {  }

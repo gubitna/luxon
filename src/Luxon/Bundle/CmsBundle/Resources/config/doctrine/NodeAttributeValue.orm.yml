@@ -1,0 +1,21 @@
+Luxon\Bundle\CmsBundle\Entity\NodeAttributeValue:
+    type: entity
+    table: null
+    repositoryClass: Luxon\Bundle\CmsBundle\Entity\NodeAttributeValueRepository
+    id:
+        node:
+            associationKey: true
+        attribute:
+            associationKey: true
+    fields:
+        value:
+            type: string
+            length: 255
+    manyToOne:
+        node:
+            targetEntity: Node
+            inversedBy: attribute_values
+        attribute:
+            targetEntity: NodeAttribute
+            inversedBy: attribute_values
+    lifecycleCallbacks: {  }
